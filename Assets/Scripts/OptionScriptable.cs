@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class OptionScriptable
-{   public Name name;
+public class OptionScriptable 
+{   public Name Aname;
     public Sprite optionSprite;
     public Sprite optionHolderSprite;
     public int weight;
@@ -18,7 +18,8 @@ public enum Name{
     Lion,
     Giraffe,
     Elephant,
-    Zebra
+    Zebra,
+    None
 
 
 }

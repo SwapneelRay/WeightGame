@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 2054959511632703841}
   - component: {fileID: 683921854197274494}
   - component: {fileID: 4378928067919104864}
+  - component: {fileID: 5061222669011096835}
   m_Layer: 5
   m_Name: OptionHolder
   m_TagString: Untagged
@@ -151,6 +152,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5061222669011096835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959734094427733682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd1b73e13bf93c44bd8c8ecb3aca951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 0
 --- !u!1 &7960998229515064621
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +254,9 @@ GameObject:
   - component: {fileID: 1684403956888271038}
   - component: {fileID: 8644374086430467690}
   - component: {fileID: 1230196314982469651}
+  - component: {fileID: 7496788099087679013}
+  - component: {fileID: 380654488662132491}
+  - component: {fileID: 8789411739579321969}
   m_Layer: 5
   m_Name: Option
   m_TagString: Untagged
@@ -303,3 +320,41 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &7496788099087679013
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569982491131014639}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &380654488662132491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569982491131014639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7b9589561f529458c5f878d3088166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  droppedOnSlot: 0
+--- !u!114 &8789411739579321969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569982491131014639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5efe7fdde6250464d9508a1dc796a063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
