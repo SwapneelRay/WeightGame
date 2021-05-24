@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OptionScript : MonoBehaviour
 {
     public Name Aname;
     public int weight;
+    public Text text;
 
-    private Action OnDropCallBack;
+    public bool inHolder=false;
+
+    private Action<int,bool,bool> OnDropCallBack;
     
     // Start is called before the first frame update
     void Start()
@@ -21,23 +25,28 @@ public class OptionScript : MonoBehaviour
         
     }
 
-    public void InititailizeOption(int weight,Name Aname,Action _Ondropcallback) {
+    public void InititailizeOption(int weight,Name Aname,Action<int,bool,bool> _Ondropcallback) {
         this.Aname = Aname;
         this.weight = weight;
+        text.text = weight.ToString();
         OnDropCallBack = _Ondropcallback;
     }
 
-    public void OnSlotDrop()
+    public void OnSlotDrop(bool value)
     {
 
 
         if (OnDropCallBack != null)
         {
 
-            OnDropCallBack();
+            OnDropCallBack(weight,value,inHolder);
         }
 
 
 
+    }
+    public void InholderSetter(bool setter) {
+
+        this.inHolder = setter;
     }
 }

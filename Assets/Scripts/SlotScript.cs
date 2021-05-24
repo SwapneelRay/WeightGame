@@ -11,13 +11,19 @@ public class SlotScript : MonoBehaviour,IDropHandler
     {
         var temp = eventData.pointerDrag;
         var animalenum = temp.GetComponent<OptionScript>().Aname;
-        print(animalenum);
-        print(name);
+        
         if (sname == animalenum || sname == Name.None)
         {
             temp.GetComponent<RectTransform>().position = gameObject.GetComponent<RectTransform>().position;
-            temp.GetComponent<OptionScript>().OnSlotDrop();
+            if (sname == animalenum) { temp.GetComponent<OptionScript>().OnSlotDrop(false);
+                temp.GetComponent<OptionScript>().inHolder = false;
+            }
+            else { temp.GetComponent<OptionScript>().OnSlotDrop(true);
+                temp.GetComponent<OptionScript>().inHolder = true;
+            }
+            
             temp.GetComponent<DragAndDrop>().droppedOnSlot = true;
+            temp.transform.SetParent(gameObject.transform);
         }
         else { temp.GetComponent<DragAndDrop>().droppedOnSlot = false; }
 

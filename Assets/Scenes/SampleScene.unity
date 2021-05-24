@@ -588,7 +588,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 400
+  m_Text: 0
 --- !u!222 &594904384
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -705,8 +705,10 @@ MonoBehaviour:
   dinosaur: {fileID: 2002847714}
   optionHolderpf: {fileID: 6959734094427733682, guid: 9c6e9f6e587453449b0d6be3e4a4b08e,
     type: 3}
-  OptionPanel: {fileID: 1453962124}
-  Animalweight: {fileID: 594904383}
+  optionPanel: {fileID: 1453962124}
+  animalWeightText: {fileID: 594904383}
+  dinoweight: 1000
+  Scale: {fileID: 1979883190}
 --- !u!4 &890577116
 Transform:
   m_ObjectHideFlags: 0
@@ -813,10 +815,10 @@ RectTransform:
   m_Children:
   - {fileID: 2112835249}
   - {fileID: 1645849703}
-  - {fileID: 1199999928}
   - {fileID: 1331717632}
   - {fileID: 1878666940}
   - {fileID: 1453962124}
+  - {fileID: 1199999928}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -835,7 +837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1199999928}
   m_Layer: 5
-  m_Name: AScale
+  m_Name: Scale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -855,7 +857,7 @@ RectTransform:
   - {fileID: 465313882}
   - {fileID: 1979883191}
   m_Father: {fileID: 1080179555}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1048,7 +1050,7 @@ RectTransform:
   - {fileID: 2063392629}
   - {fileID: 1814275753}
   m_Father: {fileID: 1080179555}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1273,7 +1275,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1080179555}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1689,7 +1691,7 @@ RectTransform:
   - {fileID: 594904382}
   - {fileID: 2136983572}
   m_Father: {fileID: 1080179555}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1954,7 +1956,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 400
+  m_Text: 1000
 --- !u!222 &2063392631
 CanvasRenderer:
   m_ObjectHideFlags: 0
