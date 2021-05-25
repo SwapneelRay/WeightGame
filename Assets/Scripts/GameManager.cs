@@ -11,16 +11,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject optionHolderpf;
     [SerializeField] Transform optionPanel;
     [SerializeField] Text animalWeightText;
-    int totalweight;
+    int totalweight=0;
     int itemsInPlace;
     public int dinoweight;
 
     [SerializeField] GameObject Scale;
+   // [SerializeField] GameObject dummy;
 
     // Start is called before the first frame update
     void Start()
     {
         OptionInstantiate();
+        //   Instantiate(dummy);
+        ScaleRotator();
+       
     }
 
     // Update is called once per frame
@@ -56,14 +60,23 @@ public class GameManager : MonoBehaviour
 
         animalWeightText.text = totalweight.ToString();
 
-        if (itemsInPlace >= 3)
-        {
+        /* if (itemsInPlace >= 3)
+         {
 
-            if (dinoweight > totalweight) { Scale.transform.DORotate(new Vector3(0, 0, 10), 2f); }
-            else { Scale.transform.DORotate(new Vector3(0, 0, -10), 2f); }
+             if (dinoweight > totalweight) { Scale.transform.DORotate(new Vector3(0, 0, 10), 2f); }
+             else if(dinoweight < totalweight) { Scale.transform.DORotate(new Vector3(0, 0, -10), 2f); }
 
 
-        }
-        else { Scale.transform.DORotate(new Vector3(0, 0, 0), 2f); }
+         }
+         else { Scale.transform.DORotate(new Vector3(0, 0, 0), 2f); }*/
+        ScaleRotator();
+    }
+
+
+    void ScaleRotator() {
+
+      int weightDiff=  dinoweight - totalweight;
+        if (weightDiff >= 0) { Scale.transform.DORotate(new Vector3(0, 0, weightDiff*0.02f), 2f); }
+        else if(weightDiff < 0) { Scale.transform.DORotate(new Vector3(0, 0, weightDiff * 0.1f), 2f); }
     }
 }

@@ -24,9 +24,10 @@ public class SlotScript : MonoBehaviour,IDropHandler
             
             temp.GetComponent<DragAndDrop>().droppedOnSlot = true;
             temp.transform.SetParent(gameObject.transform);
+           
         }
         else { temp.GetComponent<DragAndDrop>().droppedOnSlot = false; }
-
+        temp.transform.rotation = Quaternion.identity;
     }
     public void InititailizeOptionHolder(Name sname)
     {

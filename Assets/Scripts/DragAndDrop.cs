@@ -13,6 +13,8 @@ public class DragAndDrop :MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     private CanvasGroup canvasGroup;
     Vector2 defaultPos;
     public bool droppedOnSlot;
+
+    [SerializeField] GameObject dummy;
     /*
     public Vector3 punch;
     public float duration;
@@ -22,6 +24,7 @@ public class DragAndDrop :MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
     private void Awake()
     {
+        dummy = GameObject.FindGameObjectWithTag("dummy");
         canvas = FindObjectOfType<Canvas>();
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
@@ -31,10 +34,11 @@ public class DragAndDrop :MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-       // transform.DOScale(Vector3.one*scalemultiplier, 1f);
+       // transform.DOScale(Vector3.one*.2f, 1f);
         defaultPos =transform.position;
         canvasGroup.blocksRaycasts = false;
-        
+        droppedOnSlot = false;
+        transform.SetParent(canvas.transform);
     }
 
     public void OnDrag(PointerEventData eventData)
