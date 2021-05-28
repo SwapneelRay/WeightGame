@@ -8,14 +8,20 @@ public class OptionScript : MonoBehaviour
     public Name Aname;
     public int weight;
     public Text text;
+    [SerializeField] Transform defaultParent;
 
     public bool inHolder=false;
 
     private Action<int,bool,bool> OnDropCallBack;
-    
-  
 
-    // Update is called once per frame
+
+    private void Start()
+    {
+        defaultParent = transform.parent.transform;
+    }
+
+
+
     void Update()
     {
         transform.rotation = Quaternion.identity;
@@ -44,5 +50,11 @@ public class OptionScript : MonoBehaviour
     public void InholderSetter(bool setter) {
 
         this.inHolder = setter;
+    }
+
+    public void ResetParent() {
+
+        transform.SetParent(defaultParent);
+
     }
 }
