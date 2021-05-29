@@ -20,21 +20,23 @@ public class GameManager : MonoBehaviour
     int index = 0;
     [SerializeField] GameObject Menupanel;
     [SerializeField] GameObject Gamepanel;
-    int maxOptions;
+   // int maxOptions;
     
     [SerializeField] GameObject Scale;
     GameObject[] options= new GameObject[6];
 
-   // [SerializeField] GameObject dummy;
+    [SerializeField] DialogueManager dialogueManager;
+
+  
 
     // Start is called before the first frame update
     void Start()
     {
        OptionSetter();
-       // maxOptions = 6;
+       
         DinoInstantiate();
-      //  OptionInstantiate(optionList);
-        //   Instantiate(dummy);
+     
+     
         ScaleRotator();
        
     }
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour
     {
         dinoweight = dinosaurList.dino[index].weight;
         dinosaur.GetComponent<Image>().sprite = dinosaurList.dino[index].dinoSprite;
+        dinosaur.transform.DOScale(Vector3.one,1f);
         dinoWeightText.text = dinoweight.ToString();
         totalweight = 0;
         animalWeightText.text = totalweight.ToString();
@@ -75,6 +78,7 @@ public class GameManager : MonoBehaviour
             option.GetComponent<OptionScript>().Aname = item.Aname;
 
             options[tempvalue] = option.gameObject;
+            optionHolder.transform.DOScale(Vector3.one, 1f);
             tempvalue++;
 
         }
@@ -99,20 +103,17 @@ public class GameManager : MonoBehaviour
          }
          else { Scale.transform.DORotate(new Vector3(0, 0, 0), 2f); }*/
         ScaleRotator();
+        
     }
 
 
     void ScaleRotator() {
 
       int weightDiff=  dinoweight - totalweight;
-        if (weightDiff >= 0) { Scale.transform.DORotate(new Vector3(0, 0, weightDiff * 0.02f), 2f);
-            if (weightDiff == 0&&itemsInPlace>=3) { StartCoroutine(MenuActivator(true, 2.5f));
+        Scale.transform.DORotate(new Vector3(0, 0, weightDiff * 0.02f), 2f);
+        if (weightDiff == 0 && itemsInPlace >= 3) { StartCoroutine(MenuActivator(true, 2.5f)); }
+        dialogueManager.StartDialogue(weightDiff);
 
-
-            }
-        }
-        else if (weightDiff < 0) { Scale.transform.DORotate(new Vector3(0, 0, weightDiff * 0.1f), 2f); }
-         
     }
 
     IEnumerator  MenuActivator(bool state,float delaytime)
@@ -133,10 +134,7 @@ public class GameManager : MonoBehaviour
         List<OptionScriptable> finallist = new List<OptionScriptable>();
         int tempweight = dinoweight;
         //int totaloptions = 0;
-
-        // System.Random r = new System.Random();
-
-
+        
        
             // Fix the first element as A[i] 
             for (int i = 0; i < templist.Count - 2; i++)
@@ -173,10 +171,10 @@ public class GameManager : MonoBehaviour
 
 
         }
-        Debug.Log(finallist.Count);
+       // Debug.Log(finallist.Count);
         OptionList op = new OptionList();
         op.options = finallist;
-        print(op.options.Count);
+        
         OptionInstantiate(op);
     }
     public void Replay()

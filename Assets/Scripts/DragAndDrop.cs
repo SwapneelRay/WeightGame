@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;          
 
-public class DragAndDrop :MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragAndDrop :MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField] private Canvas canvas;
 
@@ -60,10 +60,6 @@ public class DragAndDrop :MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
        
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        
-    }
 
    
 }
